@@ -1,6 +1,6 @@
 
 package ProjetMyUber;
-import java.lang.Double;
+
 
 public class GPS {
 	
@@ -57,13 +57,38 @@ public class GPS {
 	 */
 	public double convertLatRad() {
 		double latConversion=(double) ( (this.latitude)*(Math.PI)/180);
-		System.out.println(latConversion);
 		return latConversion;
 		
 	}
+	/**
+	 * @return pair of coordinates in radians
+	 */
+	public double convertLongRad() {
+		double longConversion=(double) ( (this.longitude)*(Math.PI)/180);
+		return longConversion;
+	}
+	/**
+	 * @param gps2
+	 * @return distance between two gps coordinates
+	 */
+	public int distance(GPS gps2) {
+	/**
+	 * r is the radius of the Earth
+	 * if something doesn t work, it is because of the calcul at the end of the function, which
+	 * should give us the distance between the two coordinates
+	 */
+		int r=6378000;
+		double lata=this.convertLatRad();
+		double longa=this.convertLongRad();
+		double latb=gps2.convertLatRad();
+		double longb=gps2.convertLongRad();
+		double d=r*(Math.PI/2 - Math.asin(Math.sin(latb)*Math.sin(lata)+Math.cos(longb-longa)*Math.cos(latb)*Math.cos(lata)));
+		return (int) d;
+	}
 	public static void main(String[] args) {
-		GPS gps=new GPS(90,13);
-		gps.convertLatRad();
+		GPS gps=new GPS(0,0);
+		GPS gps2=new GPS(0,180);
+		System.out.println(gps.distance(gps2));
 	}
 	
 
