@@ -1,6 +1,6 @@
 
 package ProjetMyUber;
-
+import java.lang.Double;
 
 public class GPS {
 	
@@ -55,8 +55,16 @@ public class GPS {
 	/**
 	 * @return pair of coordinates in radians
 	 */
-	public int convertLatRad() {
-		int latConversion=(int) this.latitude*Math.PI/180;
+	public double convertLatRad() {
+		double latConversion=(double) ( (this.latitude)*(Math.PI)/180);
+		System.out.println(latConversion);
+		return latConversion;
+		
 	}
+	public static void main(String[] args) {
+		GPS gps=new GPS(90,13);
+		gps.convertLatRad();
+	}
+	
 
 }
