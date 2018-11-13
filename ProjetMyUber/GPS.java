@@ -1,6 +1,6 @@
 
 package ProjetMyUber;
-import javafx.util.Pair;
+
 
 public class GPS {
 	
@@ -55,8 +55,8 @@ public class GPS {
 	/**
 	 * @return pair of coordinates in radians
 	 */
-	public Pair convertRad() {
-		
+	public int convertLatRad() {
+		int latConversion=(int) this.latitude*Math.PI/180;
 	}
 
 }
