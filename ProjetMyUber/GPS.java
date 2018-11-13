@@ -1,15 +1,15 @@
 
 package ProjetMyUber;
-
+import javafx.util.Pair;
 
 public class GPS {
-
+	
 	private int latitude;
 	private int longitude;
 	
 	/**
 	 *  A class for the GPS position of a system (person or object)
-	 * 
+	 * latitude and longitude are in degrees
 	 */
 	
 	public GPS(int latitude, int longitude) {
@@ -51,6 +51,12 @@ public class GPS {
 	 */
 	public void setLongitude(int longitude) {
 		this.longitude = longitude;
+	}
+	/**
+	 * @return pair of coordinates in radians
+	 */
+	public Pair convertRad() {
+		
 	}
 
 }
